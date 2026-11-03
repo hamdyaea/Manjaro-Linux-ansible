@@ -1,10 +1,15 @@
-- name: All hosts up-to-date
+---
+# Developer: Hamdy Abou El Anein
+# Contact: hamdy.aea@protonmail.com
+# SPDX-License-Identifier: GPL-3.0-or-later
+- name: Upgrade Manjaro or Arch Linux hosts with pacman
   hosts: control
-  become: yes
-            
+  become: true
+  gather_facts: true
+  serial: 1
   tasks:
-      - name: full system upgrade
-        pacman:
-          update_cache: yes
-          upgrade: yes
-
+    - name: Upgrade installed packages and refresh pacman databases
+      community.general.pacman:
+        update_cache: true
+        upgrade: true
+      when: ansible_facts.os_family == "Archlinux"

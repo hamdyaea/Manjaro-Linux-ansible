@@ -1,0 +1,7 @@
+---
+# Developer: Hamdy Abou El Anein
+# Contact: hamdy.aea@protonmail.com
+# SPDX-License-Identifier: GPL-3.0-or-later
+collections:
+  - name: community.general
+    version: ">=10.0.0"
